@@ -1,0 +1,16 @@
+# 选择基础镜像，这里用 Ubuntu 22.04
+FROM 10.156.168.113:7887/pytorch/pytorch:2.6.0-cuda12.4-cudnn9-runtime
+
+# 避免交互提示
+ENV DEBIAN_FRONTEND=noninteractive
+
+# 更新 apt 并安装 git
+RUN apt-get update && \
+    apt-get install -y git && \
+    rm -rf /var/lib/apt/lists/*
+
+# # 设置默认工作目录
+# WORKDIR /app
+
+# # 默认命令，进入 bash
+# CMD ["/bin/bash"]
